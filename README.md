@@ -3,13 +3,13 @@
 ## はじめに
 [モダンJavaSctiptについて](https://xd.adobe.com/view/5e3085ea-b9d4-4102-a7c0-2761a1e36995-0b63/)は一通り押さえておくことをおすすめします。
 　
-## 環境開発
+## 環境構築
 - ①[node](https://nodejs.org/ja)を端末にインストール(推奨版)
 - ②Reactプロジェクトを作成
 　
 ## サンプルファイル
 ```zsh
-$ git clone https://github.com/dai-570415/react-practice-src
+$ git clone https://github.com/dai-570415/react-practice-src.git
 $ cd react-practice-src
 $ npm i
 $ npm start
