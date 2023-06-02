@@ -39,3 +39,23 @@ $ ionic serve
 ```
 　
 ここでは`CRA TypeScript`に沿って説明します。
+
+## 初期構成
+```json
+"react": "^18.2.0",
+```
+Reactではver18から大きな変更点あります。
+詳しくは[公式HP](https://ja.legacy.reactjs.org/blog/2022/03/29/react-v18.html)
+
+```
+🗂 プロジェクト
+　|- 🗂 public
+　|- 🗂 src
+🗂 node_modules
+.git
+.gitignore
+package-lock.json
+package.json
+README.md
+tsconfig.json
+```
