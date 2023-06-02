@@ -40,7 +40,7 @@ $ ionic serve
 　
 ここでは`CRA TypeScript`に沿って説明します。
 
-## 初期構成
+## #001初期構成
 ```json
 "react": "^18.2.0",
 ```
@@ -58,4 +58,19 @@ package-lock.json
 package.json
 README.md
 tsconfig.json
+```
+　
+## #002jsx記法
+Reactではjsx記法と呼ばれるJSファイル内でhtmlのように記述できる記法を用います。
+ファイル名はjsならjsx、tsならtsxにします。
+　
+```jsx
+const App = () => {
+    return (
+        <div className="App">
+            <h1>Hello World!</h1>
+            <p>This is React.</p>
+        </div>
+    );
+}
 ```
