@@ -81,7 +81,6 @@ const App = () => {
 ※Fragmentタグ（or 空のタグ）を使うとDOM構造を変えずに記述できる
 　
 ### Fragmentタグ
-
 ```jsx
 const App = () => {
     return (
@@ -104,4 +103,54 @@ const App = () => {
         </>
     );
 }
+```
+　
+## #003ルーティング(CRAの場合)
+```zsh
+# react-router-dom(5系)　※5系を入れないとswitchが使えない
+$ npm install react-router-dom@5
+# TypeScriptの場合は以下も入れる
+$ npm i @types/react-router-dom
+```
+　
+### App.tsxでルーティング設定をする
+`App.tsx`
+```jsx
+// react-router-domをimport
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+// ルーティングさせたいコンポーネントをimport
+import Index from './pages/Index';
+
+const App = () => {
+  return (
+    <Router>
+        <Switch>
+            <Route path="/" component={ Index } />
+            {/* <Route path="/user/:id" component={ User } /> */}
+        </Switch>
+    </Router>
+  );
+}
+
+export default App;
+```
+※プロジェクトポリシーによるがApp.tsxではルーティング機能や状態管理のプロバイダー登録、メタ管理などサイト設定の役割に徹した方が管理しやすい
+　
+### ルーティングコンポーネントを作成
+Next.jsに習ってルーティングコンポーネントはpagesにしているが、任意のフォルダで構わない<br>
+`/pages/Index.tsx`
+```jsx
+import logo from '../logo.svg'; // コンポーネント化する場合パスに気をつけて
+
+const Index = () => {
+    return (
+        <div className="containet">
+            <header className="header">
+                ...省略
+            </header>
+        </div>
+    );
+}
+
+export default Index;
 ```
