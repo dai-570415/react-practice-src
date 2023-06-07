@@ -144,8 +144,8 @@ import logo from '../logo.svg'; // コンポーネント化する場合パスに
 
 const Index = () => {
     return (
-        <div className="containet">
-            <header className="header">
+        <div className="container">
+            <header>
                 ...省略
             </header>
         </div>
@@ -153,4 +153,83 @@ const Index = () => {
 }
 
 export default Index;
+```
+
+## #004共通のコンポーネントを作成
+headerやfooterなどの共通コンポーネントを作成します。
+`/pages/Index.tsx`からデータを切り離して作成します。
+　
+### `components/Layout/Layout.tsx`を作成
+`/pages/Index.tsx`で書いていた内容をごっそりコピーする
+　
+`components/Layout/Layout.tsx`
+```jsx
+export const Layout = () => {
+    return (
+        <div className="container">
+            <header>
+                header
+            </header>
+        </div>
+    );
+}
+```
+　
+`/pages/Index.tsx`で読み込む
+```jsx
+import { Layout } from '../components/Layout/Layout';
+
+const Index = () => {
+    return <Layout />;
+}
+```
+　
+### さらに使い勝手のいいコンポーネントに拡張する
+`<Layout>~children~</Layout>`の中に要素を入れると子コンポーネント側で値を受け取れます
+　
+`/pages/Index.tsx`
+```jsx
+const Index = () => {
+    return (
+        <Layout>
+            index
+        </Layout>
+    );
+}
+```
+　
+`components/Layout/Layout.tsx`
+```jsx
+import { ReactNode } from 'react';
+
+// childrenノードで受け取る際は型定義が必要
+export type Children = {
+    children: ReactNode,
+}
+
+export const Layout: React.FC<Children> = ({ children }) => {
+// export const Layout = ({ children }: Children) => { // ジェネリクスを使わない記述
+    return (
+        <div className="container">
+            <header>header</header>
+                { children }　{/* 親から渡ってきたデータを表示できる */}
+            <footer>footer</footer>
+        </div>
+    );
+}
+```
+　
+#### 型定義ファイルは１つにまとめておくと便利
+`types/types.ts`
+```ts
+import { ReactNode } from 'react';
+
+export type Children = {
+    children: ReactNode,
+}
+```
+　
+`components/Layout/Layout.tsx`
+```jsx
+import { Children } from '../../types/types';
 ```
