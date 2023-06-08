@@ -19,29 +19,14 @@ $ npm start
 ```
 
 ```zsh
-# Create React App(以下CRA略)
-$ npx create react app [プロジェクト名]
-$ npm start
-
-# CRA TypeScript
+# Create React App(以下CRA略) TypeScript
 $ npx create react app [プロジェクト名] --template typescript
 $ npm start
-
-# Next.js
-$ npx create-next-app [プロジェクト名]
-$ npm run dev
-
-# Next.js TypeScript
-$ npx create-next-app [プロジェクト名] --typescript
-$ npm run dev
-
-# ionic + React
-$ npm install -g @ionic/cli
-$ ionic start [プロジェクト名] tabs --type react
-$ ionic serve
 ```
-　
-ここでは`CRA TypeScript`に沿って説明します。
+cf. 参考<br>
+Create React App（CRA）とは<br>
+開発と運用のための複雑な設定なしにReactを利用した開発が行えるビルド環境です。<br>
+この他にはCRAをさらに便利にしたNext.jsやネイティブへのコンパイルも可能なionicフレームワークなどもあります。
 　
 ## #001初期構成
 ```json
